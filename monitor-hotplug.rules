@@ -1,1 +1,1 @@
-ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/hao/.Xauthority", RUN+="/home/hao/.scripts/monitor-hotplug.sh"
+ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/hao/.Xauthority", RUN+="/home/hao/.dotfiles/udev/scripts/monitor-hotplug.sh"
