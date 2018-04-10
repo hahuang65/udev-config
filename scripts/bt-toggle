@@ -1,0 +1,11 @@
+#!/bin/bash
+
+HDMI_NAME=DP-1
+HDMI_STATUS=$(</sys/class/drm/card0/card0-$HDMI_NAME/status)
+
+if [[ $HDMI_STATUS == connected ]]
+then
+  sudo systemctl start bluetooth.service
+else
+  sudo systemctl stop bluetooth.service
+fi
