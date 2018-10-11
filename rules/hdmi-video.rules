@@ -1,1 +1,1 @@
-ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/hao/.Xauthority", RUN+="/usr/bin/autorandr --change"
+ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/hao/.Xauthority", RUN+="/usr/bin/autorandr --change && i3-msg restart"
