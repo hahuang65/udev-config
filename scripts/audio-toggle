@@ -8,7 +8,9 @@ export PULSE_SERVER="unix:/run/user/"$USER_ID"/pulse/native"
 
 if [[ $HDMI_STATUS == connected ]]
 then
+  echo "Switching to HDMI output"
   sudo -u "$USER_NAME" pactl --server "$PULSE_SERVER" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
 else
+  echo "Switching to built-in speakers"
   sudo -u "$USER_NAME" pactl --server "$PULSE_SERVER" set-card-profile 0 output:analog-stereo+input:analog-stereo
 fi

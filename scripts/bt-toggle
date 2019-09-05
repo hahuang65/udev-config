@@ -5,7 +5,9 @@ HDMI_STATUS=$(</sys/class/drm/card0/card0-$HDMI_NAME/status)
 
 if [[ $HDMI_STATUS == connected ]]
 then
+  echo "Starting bluetooth service"
   sudo systemctl start bluetooth.service
 else
+  echo "Disabling bluetooth service"
   sudo systemctl stop bluetooth.service
 fi
