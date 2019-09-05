@@ -9,6 +9,10 @@ export PULSE_SERVER="unix:/run/user/"$USER_ID"/pulse/native"
 if [[ $HDMI_STATUS == connected ]]
 then
   echo "Switching to HDMI output"
+  echo "If no sound is playing, check if `pactl list short sinks` shows the output as SUSPENDED."
+  echo "If so, restart pulse with `pulseaudio -k`"
+  # The reason for suspension is `module-suspend-on-idle`. Documentation here:
+  # https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#index62h3
   sudo -u "$USER_NAME" pactl --server "$PULSE_SERVER" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
 else
   echo "Switching to built-in speakers"
