@@ -1,0 +1,7 @@
+# Enables Bluetooth to wakeup from suspend
+# Disables Bluetooth from autosuspending
+# Given `lsusb` output that looks like:
+# Bus 001 Device 002: ID 8087:0029 Intel Corp. AX200 Bluetooth
+# The vendor ID and product ID are derived from the `ID 8087:0029`.
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="8087", ATTR{idProduct}=="0029", ATTR{power/wakeup}="enabled"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="8087", ATTR{idProduct}=="0029", ATTR{power/autosuspend}="-1"
